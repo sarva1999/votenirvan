@@ -1,2 +1,2 @@
-# sarva-B00117458-spring-2025
+A Digital Scalable Voting System 
 Master's Degree Project
