@@ -8,17 +8,13 @@ Welcome to my **Masters Project Development Timeline**! This roadmap details my 
 
 ### 🗳️ **Voter**
 - **As a voter,** I want to register for an election so that I can cast my vote securely and participate in the democratic process.
-- I should receive a confirmation upon successful registration and be able to view my election status.
 
 ### 🏛️ **Administrator**
 - **As an admin,** I want to create elections, publish results, and manage voter lists so that I can oversee and maintain the entire election process efficiently.
-- I should be able to verify and approve voter registrations, ensuring only eligible voters participate.
-- I need a dashboard to monitor election progress and generate reports.
+
 
 ### 🎭 **Candidate**
-- **As a candidate,** I want to register as a participant in an election so that voters can vote for me.
-- I should have a profile with my details visible to voters.
-- I need access to the election results to track my performance.
+- **As a candidate,** As a candidate I want to be part of election so that voters can vote.
 
 ---
 
