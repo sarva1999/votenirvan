@@ -10,7 +10,7 @@ Welcome to my **Masters Project Development Timeline**! This roadmap details my 
 - **As a voter,** I want to register for an election so that I can cast my vote securely and participate in the democratic process.
 
 ### 🏛️ **Administrator**
-- **As an admin,** I want to create elections, publish results, and manage voter lists so that I can oversee and maintain the entire election process efficiently.
+- **As an admin,** I want to create elections, publish results, and view voter lists so that I can oversee and maintain the entire election process efficiently.
 
 
 ### 🎭 **Candidate**
