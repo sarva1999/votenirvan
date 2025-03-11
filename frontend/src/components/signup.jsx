@@ -8,6 +8,9 @@ import { aadhar } from "@ashwinbande/validators";
 import { mobile } from '@ashwinbande/validators';
 import { Validator, Regex } from 'valiy';
 import Footer from './Footer';
+import { isValid as isValidSSN }  from 'ssn-validator'
+import { getMatches, isValid as isValidDL } from 'driver-license-validator';
+
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -38,13 +41,13 @@ export default function SignUp() {
   const handleAadharChange = (e) => {
     const inputValue = e.target.value;
     setAadharNumber(inputValue);
-    setIsValidAadhar(inputValue === '' ? false : aadhar(inputValue));
+    setIsValidAadhar(inputValue === '' ? false : isValidSSN(inputValue));
   };
 
   const handleVoterChange = (e) => {
     const inputValue = e.target.value;
     setVoterNumber(inputValue);
-    setIsValidVoter(inputValue === '' ? false : Validator.validateVoterId(inputValue));
+    setIsValidVoter(inputValue === '' ? false : isValidDL(inputValue));
   };
 
   const handleFullName = (e) => {
@@ -87,7 +90,7 @@ export default function SignUp() {
       },
       body: JSON.stringify({
         voterId:voterNumber,
-        phoneNumber: "+91"+ phoneNo,
+        phoneNumber: "+1"+ phoneNo,
 
       }),
     })
@@ -223,7 +226,7 @@ export default function SignUp() {
                   autoComplete="name"
                   required
                   value={fullName}
-                  placeHolder="Enter your Full Name as Per Aadhaar"
+                  placeHolder="Enter your Full Name as Per Passport"
                   onChange={handleFullName}
                   className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
                 />
@@ -239,7 +242,7 @@ export default function SignUp() {
 
             <div>
               <label htmlFor="voterid" className="block text-sm font-medium leading-6 text-red-600">
-                  Voter ID
+                  Driver License ID
               </label>
               <div className="mt-2">
                 <input
@@ -248,16 +251,16 @@ export default function SignUp() {
                   type="text"
                   autoComplete="voterid"
                   required
-                  placeHolder='Enter your Voter ID '
+                  placeHolder='Enter your Driver License ID '
                   value={voterNumber}
                   onChange={handleVoterChange}
                   className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
                 />
                 {voterNumber !== '' && (
                   isValidVoter ? (
-                    <span className="text-sm text-green-500">Valid Voter Id</span>
+                    <span className="text-sm text-green-500">Valid Driver License Id</span>
                   ) : (
-                    <span className="text-sm text-red-500">Invalid Voter Id</span>
+                    <span className="text-sm text-red-500">Invalid Driver License Id</span>
                   )
                 )}
               </div>
@@ -265,25 +268,25 @@ export default function SignUp() {
 
             <div>
               <label htmlFor="aadhar" className="block text-sm font-medium leading-6 text-red-600">
-                Aadhar Number 
+                SSN Number 
               </label>
               <div className="mt-2">
                 <input
                   id="aadhar"
                   name="aadhar"
-                  type="number"
+                  type="string"
                   autoComplete="aadhar"
                   required
-                  placeHolder='Enter your Aadhaar Number'
+                  placeHolder='Enter your SSN Number'
                   value={aadharNumber}
                   onChange={handleAadharChange}
                   className="block w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
                 />
                 {aadharNumber !== '' && (
                   isValidAadhar ? (
-                    <span className="text-sm text-green-500">Valid Aadhar Number</span>
+                    <span className="text-sm text-green-500">Valid SSN Number</span>
                   ) : (
-                    <span className="text-sm text-red-500">Invalid Aadhar Number</span>
+                    <span className="text-sm text-red-500">Invalid SSN Number</span>
                   )
                 )}
               </div>
@@ -298,7 +301,7 @@ export default function SignUp() {
                   id="address"
                   name="address"
                   type="text"
-                  placeHolder="Enter the Address as Per Aadhar"
+                  placeHolder="Enter the Address as Per Passport or Driver License"
                   autoComplete="address"
                   required
                   value={address}
