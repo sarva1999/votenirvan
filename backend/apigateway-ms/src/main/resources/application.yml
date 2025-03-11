@@ -1,0 +1,71 @@
+spring:
+  application:
+    name: apigateway-ms
+  cloud:
+    gateway:
+      default-filters:
+      - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
+      routes:
+      - id: election
+        uri: http://election:4000
+        predicates:
+        - Path=/election/**
+        filters:
+        - AuthenticationFilter
+
+      - id: candidate
+        uri: http://candidate:4001
+        predicates:
+        - Path=/candidate/**
+        filters:
+        - AuthenticationFilter
+
+      - id: voter
+        uri: http://voter:4002
+        predicates:
+        - Path=/voter/**
+        filters:
+        - AuthenticationFilter
+
+      - id: vote
+        uri: http://vote:4003
+        predicates:
+        - Path=/vote/**
+        filters:
+        - AuthenticationFilter
+
+      - id: result
+        uri: http://result:4004
+        predicates:
+        - Path=/result/**
+        filters:
+        - AuthenticationFilter
+
+      - id: auth
+        uri: http://auth:4005
+        predicates:
+        - Path=/auth/**
+
+      - id: twilio
+        uri: http://twilio:4006
+        predicates:
+        - Path=/otp/**
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+server:
+  port: 4444
