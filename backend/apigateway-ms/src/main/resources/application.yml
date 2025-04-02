@@ -1,3 +1,8 @@
+# API Gateway Configuration for Microservices 
+# This configuration file is used to set up the API Gateway for the election system.
+# It defines the routes, filters, and CORS settings for the gateway.
+# Used Reference from springboot documenation and from chatgpt
+
 spring:
   application:
     name: apigateway-ms

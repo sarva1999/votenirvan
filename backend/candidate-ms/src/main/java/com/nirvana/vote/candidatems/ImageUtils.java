@@ -3,6 +3,8 @@ import java.io.ByteArrayOutputStream;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
+// Used Reference from springboot documentation and from chatgpt
+
 public class ImageUtils {
 
 

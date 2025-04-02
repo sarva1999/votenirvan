@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
+// Used Reference from springboot documentation 
 
 @RestController
 @RequestMapping("election")

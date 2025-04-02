@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from './navbarNoRegister';
 import Footer from './Footer'
 import {Card, CardHeader, CardBody, Image} from "@nextui-org/react";
+// Used Reference from react  documentation  and chatgpt
 
 
 function Result() {

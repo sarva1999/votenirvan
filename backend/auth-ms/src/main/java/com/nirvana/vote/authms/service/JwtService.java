@@ -15,6 +15,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+// Used Reference from springboot documentation and from chatgpt
+
 @Component
 public class JwtService {
 

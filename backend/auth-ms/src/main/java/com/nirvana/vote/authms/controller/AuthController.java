@@ -11,6 +11,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+
+// Used Reference from springboot documentation and from chatgpt
+
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {

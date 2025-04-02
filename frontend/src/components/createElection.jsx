@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import useRequireAuth from './useRequireAuth';
 import Footer from './Footer'
 
+// Used Reference from react  documentation and from chatgpt
 
 
 function CreateElection() {

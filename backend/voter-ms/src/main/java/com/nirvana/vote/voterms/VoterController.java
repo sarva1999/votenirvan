@@ -38,6 +38,7 @@ public class VoterController {
 //
 //        return new ResponseEntity(electionService.getElectionById(election_id), HttpStatus.OK);
 //    }
+// Used Reference from springboot documentation
 
     @GetMapping("/all")
     public ResponseEntity<List<Voter>> getAllVoters() {

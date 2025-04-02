@@ -15,10 +15,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+
+/** 
+ * Service class to send OTP using Twilio API.
+ * 
+ * This class is responsible for generating a random OTP, sending it to the user's phone number
+ * using Twilio's messaging service, and validating the OTP entered by the user.    
+ * Using the reference from javaTechie youtube channel
+ */
 @Service
 public class OtpService {
 
-
+ 
 
     @Autowired
     private TwilioConfig twilioConfig;

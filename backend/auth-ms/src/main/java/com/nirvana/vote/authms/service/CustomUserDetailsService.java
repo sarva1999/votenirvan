@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+// Used Reference from springboot documentation and from chatgpt
+
 @Component
 public class CustomUserDetailsService implements UserDetailsService {
 

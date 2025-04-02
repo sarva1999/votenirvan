@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+// Used Reference from springboot documentation and from chatgpt
 
 @RestController
 @RequestMapping("/vote")

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import AdminNav from './adminnav'
 import useRequireAuth from './useRequireAuth';
+// Used Reference from react  documentation  and chatgpt
 
 function viewVoterList() {
   useRequireAuth(); 
