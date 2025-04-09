@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init-script
+data:
+  init.sql: |
+    CREATE DATABASE candidate_ms;
+    CREATE DATABASE voter_ms;
+    CREATE DATABASE vote_ms;
+    CREATE DATABASE result_ms;
+    CREATE DATABASE auth_ms;
+    CREATE DATABASE election_ms;
+
