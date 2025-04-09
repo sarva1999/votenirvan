@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: candidate
+spec:
+  selector:
+    app: candidate
+    type: backend
+  type: ClusterIP
+  ports:
+  - port: 4001
+    targetPort: 4001

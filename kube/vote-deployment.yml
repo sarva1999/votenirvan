@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: votenirvan-vote
+  labels:
+    app: vote
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vote
+      type: backend
+  template:
+    metadata:
+      labels:
+        app: vote
+        type: backend
+    spec:
+      containers:
+      - name: votenirvan-vote
+        image: dsarva/vote
+        resources:
+          limits:
+            cpu: 200m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        ports:
+        - containerPort: 4003
+          name: http

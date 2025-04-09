@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: votenirvan-election
+  labels:
+    app: election
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: election
+      type: backend
+  template:
+    metadata:
+      labels:
+        app: election
+        type: backend
+    spec:
+      containers:
+      - name: votenirvan-election
+        image: dsarva/election
+        ports:
+        - containerPort: 4000
+          name: http

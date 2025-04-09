@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: votenirvan-candidate
+  labels:
+    app: candidate
+    type: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: candidate
+      type: backend
+  template:
+    metadata:
+      labels:
+        app: candidate
+        type: backend
+    spec:
+      containers:
+      - name: votenirvan-candidate
+        image: dsarva/candidate
+        resources:
+          limits:
+            cpu: 200m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        ports:
+        - containerPort: 4001
+          name: http
+      restartPolicy: Always
