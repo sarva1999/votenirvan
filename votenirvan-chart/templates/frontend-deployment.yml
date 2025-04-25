@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{  .Release.Name  }}-vn-frontend
+  labels:
+    app: frontend-replicaset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: frontend
+      app: votenirvan-frontend
+  template:
+    metadata:
+      name: votenirvan-frontend
+      labels:
+        app: votenirvan-frontend
+        type: frontend
+    spec:
+      containers:
+      - name: votenirvan-frontend
+        image: {{ .Values.image.repository }}/frontend
+        resources:
+          limits:
+            cpu: 200m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        ports:
+        - containerPort: 80
+          name: http

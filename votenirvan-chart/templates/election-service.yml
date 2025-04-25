@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: election
+spec:
+  selector:
+    app: election
+  type: ClusterIP
+  ports:
+  - port: 4000
+    targetPort: 4000

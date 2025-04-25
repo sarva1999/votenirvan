@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{  .Release.Name  }}-vn-postgresdb
+  labels:
+    app: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+        type: database
+    spec:
+      containers:
+      - name: postgresdb
+        image: postgres
+        env:
+        - name: POSTGRES_PASSWORD
+          value: H@ckme@4444
+        ports:
+        - containerPort: 5432
+          name: http
+        volumeMounts:
+        - name: init-db
+          mountPath: /docker-entrypoint-initdb.d
+      volumes:
+      - name: init-db
+        configMap:
+          name: postgres-init-script

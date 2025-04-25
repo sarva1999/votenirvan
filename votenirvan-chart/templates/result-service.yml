@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: result
+spec:
+  selector:
+    app: result
+    type: backend
+  type: ClusterIP
+  ports:
+  - port: 4004
+    targetPort: 4004

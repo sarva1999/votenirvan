@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: backend-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /api(/|$)(.*) # Exposing backend service
+        pathType: Prefix
+        backend:
+          service:
+            name: apigateway # Backend service
+            port:
+              number: 4444
